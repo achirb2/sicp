@@ -1,6 +1,26 @@
+1.3
+
 (define (SoS2L a b c) (
     cond    ((and (or (> a b) (> a c)) (or (> b a) (> b c))) (+ (* a a)(* b b)))
             ((and (or (> b a) (> b c)) (or (> c a) (> c b))) (+ (* b b)(* c c)))
             ((and (or (> c a) (> c b)) (or (> a b) (> a c))) (+ (* c c)(* a a)))
             (else (+ (* a a)(* b b)))))
 
+1.8
+
+(define (square x)
+    (* x x))
+
+(define (cube x)
+    (* x x x))
+
+(define (Newtons number guess)
+    (if(good-enough? number guess)
+        guess
+        (Newtons number (improve number guess))))
+
+(define (good-enough? number guess)
+    (< (abs (- (cube guess) number)) .001))
+
+(define (improve number guess)
+    (/ (+ (/ number (square guess)) (* 2 guess)) 3))
