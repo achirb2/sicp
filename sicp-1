@@ -1,0 +1,12 @@
+(define (SoS2L a b c) (
+    cond    ((and (or (> a b) (> a c)) (or (> b a) (> b c))) (+ (* a a)(* b b)))
+            ((and (or (> b a) (> b c)) (or (> c a) (> c b))) (+ (* b b)(* c c)))
+            ((and (or (> c a) (> c b)) (or (> a b) (> a c))) (+ (* c c)(* a a)))
+            (else (+ (* a a)(* b b)))))
+
+
+(SoS2L 1 2 3)
+(SoS2L 3 2 1)
+(SoS2L 2 3 1)
+(SoS2L 1 1 1)
+
